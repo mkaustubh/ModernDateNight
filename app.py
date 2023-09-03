@@ -28,8 +28,8 @@ def recommend(movie):
 
 
 st.header('Finally, the answer to "What should we watch tonight?"')
-movies = pd.compat.pickle_compat.load('movie_list.pkl')
-similarity = pd.compat.pickle_compat.load('similarity.pkl')
+movies = pd.compat.pickle_compat.load('movie_list.pkl','rb')
+similarity = pd.compat.pickle_compat.load('similarity.pkl','rb')
 
 movie_list = movies['title'].values
 selected_movie1 = st.selectbox(
