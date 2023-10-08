@@ -1,7 +1,6 @@
 import pickle
 import streamlit as st
 import requests
-import pandas as pd
 
 st.set_page_config(layout="wide")
 
@@ -28,8 +27,8 @@ def recommend(movie):
 
 
 st.header('Finally, the answer to "What should we watch tonight?"')
-movies = pd.compat.pickle_compat.load('movie_list.pkl','rb')
-similarity = pd.compat.pickle_compat.load('similarity.pkl','rb')
+movies = pickle.load(open('movie_list.pkl','rb'))
+similarity = pickle.load(open('similarity.pkl','rb'))
 
 movie_list = movies['title'].values
 selected_movie1 = st.selectbox(
