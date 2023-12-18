@@ -3,7 +3,7 @@ import streamlit as st
 import requests
 
 st.set_page_config(layout="wide")
-
+print('***************HELLO***********')
 def fetch_poster(movie_id):
     url = "https://api.themoviedb.org/3/movie/{}?api_key=8265bd1679663a7ea12ac168da84d2e8&language=en-US".format(movie_id)
     data = requests.get(url)
@@ -27,8 +27,8 @@ def recommend(movie):
 
 
 st.header('Finally, the answer to "What should we watch tonight?"')
-movies = pickle.load(open('movie_list.pkl','rb'))
-similarity = pickle.load(open('similarity.pkl','rb'))
+movies = pickle.load(open('/app/moderndatenight/movie_list.pkl','rb'))
+similarity = pickle.load(open('/app/moderndatenight/similarity.pkl','rb'))
 
 movie_list = movies['title'].values
 selected_movie1 = st.selectbox(
