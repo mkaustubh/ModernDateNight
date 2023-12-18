@@ -26,8 +26,8 @@ def recommend(movie):
 
 
 st.header('Finally, the answer to "What should we watch tonight?"')
-movies = pickle.load(open('moderndatenight/movie_list.pkl','rb'))
-similarity = pickle.load(open('moderndatenight/similarity.pkl','rb'))
+movies = pickle.load('/app/moderndatenight/movie_list.pkl')
+similarity = pickle.load('/app/moderndatenight/similarity.pkl')
 
 movie_list = movies['title'].values
 selected_movie1 = st.selectbox(
