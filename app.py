@@ -1,7 +1,6 @@
 import pickle
 import streamlit as st
 import requests
-import joblib
 
 st.set_page_config(layout="wide")
 def fetch_poster(movie_id):
@@ -27,8 +26,8 @@ def recommend(movie):
 
 
 st.header('Finally, the answer to "What should we watch tonight?"')
-movies = joblib.load(open('app/moderndatenight/movie_list.pkl','rb'))
-similarity = joblib.load(open('app/moderndatenight/similarity.pkl','rb'))
+movies = pickle.load(open('moderndatenight/movie_list.pkl','rb'))
+similarity = pickle.load(open('moderndatenight/similarity.pkl','rb'))
 
 movie_list = movies['title'].values
 selected_movie1 = st.selectbox(
