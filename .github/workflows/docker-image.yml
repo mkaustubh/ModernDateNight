@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Docker Build and Push
 
 on:
   push:
@@ -15,4 +15,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag moderndatenight:$(date +%s)
+    - name: Build and push Docker image
+      run: |
+        docker build -t mkaustubhm/moderndatenight:latest .
+        docker login -u "mkaustubhm" -p "8806889714" docker.io
+        docker push mkaustubhm/moderndatenight:latest
