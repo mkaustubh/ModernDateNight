@@ -1,6 +1,7 @@
 import pickle
 import streamlit as st
 import requests
+import pandas as pd
 
 st.set_page_config(layout="wide")
 def fetch_poster(movie_id):
@@ -29,9 +30,9 @@ st.header('Finally, the answer to "What should we watch tonight?"')
 movies = ''
 similarity = ''
 with open('movie_list.pkl','rb') as mx:
-    movies = pickle.load(mx)
+    movies = pd.compat.pickle_compat.load(mx)
 with open('similarity.pkl','rb') as sx:
-    similarity = pickle.load(sx)
+    similarity = pd.compat.pickle_compat.load(sx)
 
 movie_list = movies['title'].values
 selected_movie1 = st.selectbox(
